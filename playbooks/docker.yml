@@ -1,0 +1,5 @@
+- name: Setup Docker
+  hosts: webserver
+  become: yes
+  roles:
+    - docker

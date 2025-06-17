@@ -1,0 +1,5 @@
+- name: Setup LAMP stack
+  hosts: webserver
+  become: yes
+  roles:
+    - lamp
