@@ -1,19 +1,19 @@
-- name: Install Apache and PHP
+---
+- name: Install Apache, MySQL, PHP
   apt:
-    name:
-      - apache2
-      - php
-      - libapache2-mod-php
+    name: "{{ item }}"
     state: present
     update_cache: yes
+  loop:
+    - apache2
+    - mysql-server
+    - php
+    - libapache2-mod-php
+    - php-mysql
 
-- name: Install MySQL server
-  apt:
-    name: mysql-server
-    state: present
-
-- name: Start and enable Apache
+- name: Ensure Apache is running
   service:
     name: apache2
     state: started
     enabled: yes
+
