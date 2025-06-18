@@ -54,13 +54,17 @@ Ubuntu 24.04 compatible (host and VM)
 ```bash
 ssh-keygen
 ssh-copy-id -p 2222 anton@127.0.0.1
+```
 
-# Run LAMP playbook
+### Run LAMP playbook and Docker playbook
+```bash
 ansible-playbook -i inventory.ini playbooks/lamp.yml --ask-become-pass
 
-# Run Docker playbook
 ansible-playbook -i inventory.ini playbooks/docker.yml --ask-become-pass
+```
 
-# Inside VM (ssh anton@127.0.0.1 -p 2222)
+### Inside VM (Output Verification)
+```
 systemctl status apache2
 docker --version
+```
